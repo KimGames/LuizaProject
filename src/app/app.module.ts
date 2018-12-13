@@ -3,9 +3,14 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { LoginPageModule } from "../pages/login/login.module";
+import { LoginPage } from "../pages/login/login";
+import {ManagerPageModule} from "../pages/manager/manager.module";
+import {ManagerPage} from "../pages/manager/manager";
 
 @NgModule({
   declarations: [
@@ -14,17 +19,22 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    LoginPageModule,
+    ManagerPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage,
+    ManagerPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    BarcodeScanner
   ]
 })
 export class AppModule {}

@@ -1,14 +1,9 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-navbar hideBackButton *navbar></ion-navbar>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <div class="qr-code-button">
+    <button ion-button color="dark" clear icon-only (click)="scanCode()">
+      <ion-icon name='md-qr-scanner' isActive="false"></ion-icon>
+    </button>
+  </div>
 </ion-content>

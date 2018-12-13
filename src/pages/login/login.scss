@@ -1,0 +1,29 @@
+page-login {
+  .forgot-password{
+    height     : auto;
+    margin     : auto;
+    font-size  : 15px;
+    text-align : center;
+    padding    : 0;
+  }
+
+  .content-login{
+    padding-top   : 30%;
+    padding-left  : 10%;
+    padding-right : 10%;
+  }
+
+  .title-image {
+    margin-top : 8px;
+    height     : 35px;
+  }
+
+  .title-login{
+    background-color : white;
+  }
+
+  .error {
+    color     : rgb(223, 62, 62);
+    font-size : 11px;
+  }
+}
