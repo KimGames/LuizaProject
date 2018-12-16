@@ -9,8 +9,9 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPageModule } from "../pages/login/login.module";
 import { LoginPage } from "../pages/login/login";
-import {ManagerPageModule} from "../pages/manager/manager.module";
-import {ManagerPage} from "../pages/manager/manager";
+import { ManagerPageModule } from "../pages/manager/manager.module";
+import { ManagerPage } from "../pages/manager/manager";
+import { AuthLoginProvider } from '../providers/auth-login/auth-login';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import {ManagerPage} from "../pages/manager/manager";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    BarcodeScanner
+    BarcodeScanner,
+    AuthLoginProvider
   ]
 })
 export class AppModule {}

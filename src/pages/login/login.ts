@@ -3,7 +3,8 @@ import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-an
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { HomePage } from "../home/home";
-import {ManagerPage} from "../manager/manager";
+import { ManagerPage } from "../manager/manager";
+import { AuthLoginProvider } from "../../providers/auth-login/auth-login";
 
 /**
  * Generated class for the LoginPage page.
@@ -25,7 +26,8 @@ export class LoginPage {
     "password": ""
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private loadingCtrl: LoadingController,
+              private authLogin: AuthLoginProvider) {}
 
   public ngOnInit() {
     this.loginForm = new FormGroup({
@@ -45,7 +47,7 @@ export class LoginPage {
     console.log("Login successfully");
     this.makeLoadingMessage("Please wait...", 1000);
     this.navCtrl
-      .push(ManagerPage)
+      .push(HomePage)
       .catch(error => console.log(error));
   }
 
@@ -56,5 +58,9 @@ export class LoginPage {
       })
       .present()
       .catch(error => console.log(error));
+  }
+
+  private makeLogin(): string {
+    return this.authLogin.responseLogin(this.userData.username, this.userData.password);
   }
 }
