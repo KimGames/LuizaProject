@@ -8,8 +8,28 @@
 
 <ion-content padding>
 
-  <button ion-button block (click)="isActive = !isActive">Apertar</button>
+  <div class="container" *ngIf="showDoctor()">
+    <div class="box">
+      <ion-item>
+        <ion-label>Erros</ion-label>
+        <ion-select [(ngModel)]="erro">
+          <ion-option value="1">Erro 1</ion-option>
+          <ion-option value="2">Erro 2</ion-option>
+        </ion-select>
+      </ion-item>
 
-  <div *ngIf="isActive">oi</div>
+      <button ion-button block (click)="sendErrors()">Cadastrar erros</button>
+    </div>
+  </div>
+
+  <div class="container1" *ngIf="showTecnique()">
+    <div class="box1">
+      <button ion-button block (click)="showInfo()">Cadastrar erros</button>
+
+      <button ion-button block (click)="calculateError()">Cadastrar erros</button>
+
+      <button ion-button block (click)="registerProcedure()">Cadastrar erros</button>
+    </div>
+  </div>
 
 </ion-content>

@@ -14,6 +14,10 @@ import { ManagerPage } from "../pages/manager/manager";
 import { AuthLoginProvider } from '../providers/auth-login/auth-login';
 import {HttpModule} from "@angular/http";
 import {HttpClientModule} from "@angular/common/http";
+import { GetEquipamentInfoProvider } from '../providers/get-equipament-info/get-equipament-info';
+import {EquipamentInfoPageModule} from "../pages/equipament-info/equipament-info.module";
+import {EquipamentInfoPage} from "../pages/equipament-info/equipament-info";
+import { SendErrorProvider } from '../providers/send-error/send-error';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,7 @@ import {HttpClientModule} from "@angular/common/http";
     IonicModule.forRoot(MyApp),
     LoginPageModule,
     ManagerPageModule,
+    EquipamentInfoPageModule,
     HttpModule,
     HttpClientModule
   ],
@@ -33,14 +38,17 @@ import {HttpClientModule} from "@angular/common/http";
     MyApp,
     HomePage,
     LoginPage,
-    ManagerPage
+    ManagerPage,
+    EquipamentInfoPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     BarcodeScanner,
-    AuthLoginProvider
+    AuthLoginProvider,
+    GetEquipamentInfoProvider,
+    SendErrorProvider
   ]
 })
 export class AppModule {}

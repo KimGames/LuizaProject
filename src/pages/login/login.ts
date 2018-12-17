@@ -44,13 +44,50 @@ export class LoginPage {
   }
 
   public doLogin(): void {
-    let teste = this.makeLogin();
-    console.log(teste);
-    console.log("Login successfully");
-    this.makeLoadingMessage("Please wait...", 1000);
-    this.navCtrl
-      .push(HomePage)
-      .catch(error => console.log(error));
+    let receive = this.makeLogin();
+    if (receive !== undefined) {
+      switch (receive) {
+        case '{"roleName":"ROLE_ADMIN"}':
+          console.log("Login successfully");
+          this.makeLoadingMessage("Please wait...", 1000);
+          this.navCtrl
+            .push(HomePage, { role: 'ADMIN' })
+            .catch(error => console.log(error));
+          break;
+
+        case '{"roleName":"MEDICO"}':
+          console.log("Login successfully");
+          this.makeLoadingMessage("Please wait...", 1000);
+          this.navCtrl
+            .push(HomePage, { role: 'MEDICO' })
+            .catch(error => console.log(error));
+          break;
+
+        case '{"roleName":"TECNICO"}':
+          console.log("Login successfully");
+          this.makeLoadingMessage("Please wait...", 1000);
+          this.navCtrl
+            .push(HomePage, { role: 'TECNICO' })
+            .catch(error => console.log(error));
+          break;
+
+        case '{"roleName":"ENFERMEIRO"}':
+          console.log("Login successfully");
+          this.makeLoadingMessage("Please wait...", 1000);
+          this.navCtrl
+            .push(HomePage, { role: 'ENFERMEIRO' })
+            .catch(error => console.log(error));
+          break;
+
+        case '{"roleName":"ENGENHEIRO"}':
+          console.log("Login successfully");
+          this.makeLoadingMessage("Please wait...", 1000);
+          this.navCtrl
+            .push(HomePage, { role: 'ENGENHEIRO' })
+            .catch(error => console.log(error));
+          break;
+      }
+    }
   }
 
   private makeLoadingMessage(message: string, duration: number): void {

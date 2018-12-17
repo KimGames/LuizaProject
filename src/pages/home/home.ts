@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 import { ManagerPage } from "../manager/manager";
 
@@ -14,8 +14,11 @@ export class HomePage {
     formats     : 'QR_CODE',
     prompt      : 'Place the code in the center of the square.It will be scanned automatically.'
   };
+  public role: string;
 
-  constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner) {
+    this.role = navParams.get('role');
+  }
 
   public scanCode() {
     this.barcodeScanner
@@ -24,8 +27,12 @@ export class HomePage {
           if (barcodeData.cancelled) return false;
           else {
             console.log(barcodeData.text);
+            let id = JSON.parse(barcodeData.text).id;
             this.navCtrl
-              .push(ManagerPage)
+              .push(ManagerPage, {
+                role: 'TECNICO'/*this.role*/,
+                id: id
+              })
               .catch(error => console.log(error));
           }
         })
