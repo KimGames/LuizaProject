@@ -30,7 +30,7 @@ export class HomePage {
             let id = JSON.parse(barcodeData.text).id;
             this.navCtrl
               .push(ManagerPage, {
-                role: 'TECNICO'/*this.role*/,
+                role: this.role,
                 id: id
               })
               .catch(error => console.log(error));
