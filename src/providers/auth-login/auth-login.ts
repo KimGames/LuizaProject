@@ -10,7 +10,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class AuthLoginProvider {
 
-  private url: string = 'http://localhost:8080/login/user';
+  private url: string = 'http://10.15.78.205:8080/user/login';
   private response: string = '';
 
   constructor(public http: HttpClient) {}
@@ -30,6 +30,7 @@ export class AuthLoginProvider {
       headers: new HttpHeaders()
         .set('Content-Type', 'application/json')
         .set('Accept', 'application/json')
+        .set('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsdWd1aXJlbGxpIiwic2NvcGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNTQxMDA5ODUzLCJleHAiOjYxNTQxMDA5ODUzfQ.wB-sZBQROh11wKYjzzJlSf8vlxPCOUONALWDv_siqW1dRJiWD6YLAdz-VRJP2g4e1F2OAfW_nQesLgO0uqK_7g')
     };
     let body = {
       'username': username,

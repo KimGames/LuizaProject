@@ -44,6 +44,8 @@ export class LoginPage {
   }
 
   public doLogin(): void {
+    let teste = this.makeLogin();
+    console.log(teste);
     console.log("Login successfully");
     this.makeLoadingMessage("Please wait...", 1000);
     this.navCtrl

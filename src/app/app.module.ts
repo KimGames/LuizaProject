@@ -12,6 +12,8 @@ import { LoginPage } from "../pages/login/login";
 import { ManagerPageModule } from "../pages/manager/manager.module";
 import { ManagerPage } from "../pages/manager/manager";
 import { AuthLoginProvider } from '../providers/auth-login/auth-login';
+import {HttpModule} from "@angular/http";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AuthLoginProvider } from '../providers/auth-login/auth-login';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     LoginPageModule,
-    ManagerPageModule
+    ManagerPageModule,
+    HttpModule,
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
