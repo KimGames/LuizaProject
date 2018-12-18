@@ -32,14 +32,15 @@ export class SendErrorProvider {
         .set('Accept', 'application/json')
         .set('X-Authorization', 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsdWd1aXJlbGxpIiwic2NvcGVzIjpbIlJPTEVfQURNSU4iXSwiaWF0IjoxNTQxMDA5ODUzLCJleHAiOjYxNTQxMDA5ODUzfQ.wB-sZBQROh11wKYjzzJlSf8vlxPCOUONALWDv_siqW1dRJiWD6YLAdz-VRJP2g4e1F2OAfW_nQesLgO0uqK_7g')
     };
-    let body = {
-      'equipament': {
+    let body = JSON.stringify({
+      "equipament": {
         "id": equipament
       },
-      'mistake': {
+      "mistake": {
         "id": mistake
       }
-    };
+    });
+    body = JSON.parse(body);
 
     return this.http.post(this.url, body, config);
   }

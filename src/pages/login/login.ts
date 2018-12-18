@@ -45,6 +45,7 @@ export class LoginPage {
 
   public doLogin(): void {
     let receive = this.makeLogin();
+    receive = JSON.stringify(receive);
     if (receive !== undefined) {
       switch (receive) {
         case '{"roleName":"ROLE_ADMIN"}':

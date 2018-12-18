@@ -32,7 +32,7 @@ export class ManagerPage {
   }
 
   public sendErrors(): void {
-    let message = "Falta fazer";
+    let message = this.makeRequet();
     alert(message);
   }
 
